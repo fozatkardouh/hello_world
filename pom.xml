@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<junit-5-version>5.3.1</junit-5-version>
 	</properties>
 
 	<dependencies>
@@ -55,6 +56,11 @@
 						<groupId>org.junit.platform</groupId>
 						<artifactId>junit-platform-surefire-provider</artifactId>
 						<version>1.0.1</version>
+					</dependency>
+					<dependency>
+						<groupId>org.junit.jupiter</groupId>
+						<artifactId>junit-jupiter-engine</artifactId>
+						<version>${junit-5-version}</version>
 					</dependency>
 				</dependencies>
 				<!--https://stackoverflow.com/questions/53010200/maven-surefire-could-not-find-forkedbooter-class-->
