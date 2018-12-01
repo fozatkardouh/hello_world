@@ -1,12 +1,21 @@
 stages:
 - name: compile
   steps:
+  - runScriptConfig:
+      image: java:8
+      shellScript: mvn package
+- name: Create image
+  steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: fozat/hello_world
-- name: deploy
+      registry: 127.0.0.1:34669
+- name: Push image
   steps:
-  - applyYamlConfig:
-      path: ./deployment.yaml
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: fozat/hello_world
+      registry: 127.0.0.1:34669
 timeout: 60
