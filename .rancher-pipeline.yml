@@ -1,5 +1,5 @@
 stages:
-- name: compile
+- name: Compile jar
   steps:
   - runScriptConfig:
       image: maven:3-jdk-8
@@ -17,5 +17,6 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: fozat/hello_world
+      pushRemote: true
       registry: 127.0.0.1:34669
 timeout: 60
