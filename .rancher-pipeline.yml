@@ -4,19 +4,12 @@ stages:
   - runScriptConfig:
       image: maven:3-jdk-8
       shellScript: mvn clean package
-- name: Create image
-  steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: fozat/hello_world
-      registry: 127.0.0.1:34669
-- name: Push image
+- name: Create and push image
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: fozat/hello_world
       pushRemote: true
-      registry: 127.0.0.1:34669
+      registry: index.docker.io
 timeout: 60
